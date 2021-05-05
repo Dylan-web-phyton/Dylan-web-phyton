@@ -1,16 +1,34 @@
-### Hi there 👋
+import time
+from requests import get
+import webbrowser
+import requests as zy
+print("""
+                                ___  __  __         __    
+.----..---.-..--------..--.--..'  _||  ||__|.-----.|  |--.
+|  __||  _  ||        ||  |  ||   _||  ||  ||     ||    < 
+|____||___._||__|__|__||_____||__|  |__||__||__|__||__|__|
+        
+ [0] enlace acortado en TinYurl
+autor: https://github.com/ch0l0hatwhite
+ """)
 
-<!--
-**Dylan-web-phyton/Dylan-web-phyton** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+s=input('enlace a acortar > \n\n')
 
-Here are some ideas to get you started:
+a='http://tinyurl.com/api-create.php?url='+s
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+
+x=zy.get(a)
+if x.status_code==200:
+    print('sitio disponible para acortamiento\n\n')
+    x=get(a).text
+    print("\033[31msu enlace es :\t"+x)
+    time.sleep(8)
+else:
+    print("a ocurrido un problema reinicie el script")
+    exit()
+
+
+
+
+
+
